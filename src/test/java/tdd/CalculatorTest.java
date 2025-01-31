@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
+    Calculator calculator = new Calculator();
+
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
     }
@@ -17,9 +19,18 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("String as an input")
     void testSomething(){
-      String actual = "";
-      String expected = "";
+      int actual = calculator.add("1,2,3");
+      int expected = 6;
       assertEquals(actual, expected);
+    }
+
+    @Test
+    @DisplayName("Array of numbers as an input")
+            void testSomething2() {
+        int actual = calculator.add(new int[]{1, 2, 3});
+        int expected = 6;
+        assertEquals(actual, expected);
     }
 }
